@@ -10,7 +10,7 @@
 	<!-- précisez le nom et l'email de chaque membre de votre groupe -->
 	<developers>
 		<developer>
-			<name>David Gayerie</name>
+			<name>FAREEA Matahi</name>
 			<email>VOTRE_EMAIL</email>
 		</developer>
 	</developers>
@@ -99,23 +99,44 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
-        <executions>
-			<execution>  
-				<id>pre-test</id>  
-				<phase>process-test-classes</phase>  
-				<goals>  
-					<goal>prepare-agent</goal>  
-				</goals>  
-			</execution> 
-			<execution>  
-				<id>post-test</id>
-				<phase>test</phase>  
-				<goals>  
-					<goal>report</goal>  
-				</goals>  
-			</execution>  
-        </executions>
+				<executions>
+					<execution>  
+						<id>pre-test</id>  
+						<phase>process-test-classes</phase>  
+						<goals>  
+							<goal>prepare-agent</goal>  
+						</goals>  
+					</execution> 
+					<execution>  
+						<id>post-test</id>
+						<phase>test</phase>  
+						<goals>  
+							<goal>report</goal>  
+						</goals>  
+					</execution>  
+				</executions>
 			</plugin>
+			<plugin>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat7-maven-plugin</artifactId>
+              <version>2.0</version>
+              <executions>
+                  <execution>
+                      <id>deploy</id>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>deploy</goal>
+                      </goals>
+                      <configuration>
+                        <update>true</update>
+                        <url>http://localhost:8080/manager/text</url>
+                        <username>deployer</username>
+                        <password>azerty</password>
+                      </configuration>
+                  </execution>
+              </executions>
+            </plugin>
+
 		</plugins>
 	</build>
 
