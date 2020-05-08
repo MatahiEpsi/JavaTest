@@ -23,8 +23,8 @@
   		Récapitulatif de la commande :
   		
   		<ul>
-  			<li>Nom : <c:out value="${commande.nom}"/></li>
-  			<li>Téléphone : <c:out value="${commande.telephone}"/></li>
+  			<li>Nom : <span id="userName"><c:out value="${commande.nom}"/></span></li>
+  			<li>Téléphone : <span id="phone"><c:out value="${commande.telephone}"/></span></li>
   			<li>Date : <fmt:formatDate type="both" dateStyle="long" value="${commande.dateEmission}"/></li>
   		</ul>
 
@@ -32,7 +32,7 @@
 		
 		<ul>
 			<c:forEach items="${commande.details}" var="d">
-	  			<li><c:out value="${d.pizza.nom}"/></li>
+	  			<li id="${d.pizza.id}"><c:out value="${d.pizza.nom}"/></li>
 			</c:forEach>
 		</ul>
   	</div>
